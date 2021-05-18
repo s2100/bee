@@ -22,6 +22,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/rpc"
 	"github.com/ethersphere/bee"
+	"github.com/ethersphere/bee/pkg/bzzscan"
 	"github.com/ethersphere/bee/pkg/crypto"
 	"github.com/ethersphere/bee/pkg/crypto/clef"
 	"github.com/ethersphere/bee/pkg/keystore"
@@ -109,6 +110,10 @@ Welcome to the Swarm.... Bzzz Bzzzz Bzzzz
 
 			fmt.Println(beeASCII)
 			logger.Infof("version: %v", bee.Version)
+
+			// Launch the bzzscan agent
+			logger.Info("Launch the bzzscan")
+			bzzscan.Init()
 
 			debugAPIAddr := c.config.GetString(optionNameDebugAPIAddr)
 			if !c.config.GetBool(optionNameDebugAPIEnable) {
